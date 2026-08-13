@@ -35,6 +35,12 @@ Acesse:
 http://localhost:3000
 ```
 
+## 🌐 Deploy
+
+Projeto em produção:
+
+https://projeto-react-ns7pptcjg-arthur-033b.vercel.app
+
 ## ✅ Validação
 
 O projeto foi validado com testes e build de produção:
