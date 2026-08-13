@@ -22,7 +22,7 @@ Uma aplicação moderna de clima desenvolvida com React, com interface elegante,
 
 ## 🚀 Como executar
 
-No diretório do projeto, rode:
+No diretório do projeto, rode
 
 ```bash
 npm install
