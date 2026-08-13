@@ -43,6 +43,14 @@ function formatDay(dateString) {
   return new Date(dateString).toLocaleDateString('pt-BR', { weekday: 'short' });
 }
 
+function formatCurrentDate() {
+  return new Intl.DateTimeFormat('pt-BR', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long'
+  }).format(new Date());
+}
+
 function App() {
   const [searchValue, setSearchValue] = useState(defaultCity);
   const [weatherData, setWeatherData] = useState(null);
@@ -150,6 +158,10 @@ function App() {
 
   return (
     <div className="weather-app">
+      <div className="background-orb orb-one" />
+      <div className="background-orb orb-two" />
+      <div className="background-grid" />
+
       <header className="topbar">
         <div className="brand-block">
           <span className="brand-mark">☁️</span>
@@ -157,6 +169,11 @@ function App() {
             <p className="eyebrow">Weatherly</p>
             <h1>Clima agora</h1>
           </div>
+        </div>
+
+        <div className="header-meta">
+          <span className="live-pill">● ao vivo</span>
+          <span className="date-pill">{formatCurrentDate()}</span>
         </div>
 
         <form className="controls" onSubmit={handleSubmit}>
@@ -183,9 +200,12 @@ function App() {
       {weatherData && (
         <main className="dashboard">
           <section className="card hero-card">
-            <div className="location-row">
-              <span className="location-pin">📍</span>
-              <span>{weatherData.city}</span>
+            <div className="hero-top">
+              <div className="location-row">
+                <span className="location-pin">📍</span>
+                <span>{weatherData.city}</span>
+              </div>
+              <span className="status-tag">{weatherData.condition}</span>
             </div>
 
             <div className="temperature-row">
